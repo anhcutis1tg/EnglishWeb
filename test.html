@@ -1,0 +1,77 @@
+<!-- test.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bài Kiểm Tra</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Header styling */
+    .site-header {
+    background: linear-gradient(to right, #cfe9ff, #eaf4ff); /* nhạt xanh dương */
+    padding: 20px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-bottom: 2px solid #b3d4fc;
+    }
+
+    .header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    }
+
+    .logo {
+    height: 60px;
+    width: 60px;
+    object-fit: contain;
+    }
+
+    .site-title {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #1e3a8a;
+    text-shadow: 1px 1px 2px #b3d4fc;
+    text-transform: uppercase;
+    margin: 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Header -->
+<header class="site-header">
+  <div class="header-content">
+    <img src="dog-face.png" alt="Logo" class="logo">
+    <h1 class="site-title">Bài Kiểm Tra Từ Vựng</h1>
+  </div>
+</header>
+
+  <main id="test-area">
+    <div class="card">
+      <h2 id="eng-word">Từ tiếng Anh</h2>
+      <input type="text" id="viet-input" placeholder="Nhập nghĩa tiếng Việt" />
+      <div class="actions">
+        <button onclick="checkAnswer()">Kiểm tra</button>
+        <button onclick="showMeaning()">Hiển thị kết quả</button>
+        <button onclick="showSynonym()">Từ đồng nghĩa</button>
+        <button onclick="nextWord()">Từ tiếp theo</button>
+        <button onclick="goBack()">Trang chủ</button>
+      </div>
+      <div id="feedback"></div>
+    </div>
+  </main>
+
+  <script src="words.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

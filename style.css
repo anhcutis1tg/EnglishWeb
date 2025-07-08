@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+h1 {
+    color: #1e3a8a;
+    font-size: 2em;
+}
+
+#eng-word {
+    font-size: 2em;
+    font-weight: bold;
+    color: #1e3a8a;
+}
+
+input[type="text"] {
+    font-size: 1em;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.actions button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 1em;
+}
+
+.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.incorrect {
+    color: red;
+    font-weight: bold;
+}
+
+.topic-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.topic-button {
+    background-color: #e0f0ff;
+    color: #1e3a8a;
+    border: 2px solid #1e3a8a;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.topic-button:hover {
+    background-color: #cce6ff;
+    transform: scale(1.03);
+}
+
+.topic-button.selected {
+    background-color: #1e3a8a;
+    color: white;
+}
+.header {
+  background-color: #d0e7ff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 2px solid #1e3a8a;
+}
+
+.logo {
+  height: 40px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.card {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  background-color: #f0f8ff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.actions button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 1em;
+  background-color: #e0f0ff;
+  border: 2px solid #1e3a8a;
+  color: #1e3a8a;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  background-color: #cfe6ff;
+}
+
+.correct {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

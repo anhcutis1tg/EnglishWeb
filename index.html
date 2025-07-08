@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chọn Chủ Đề</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #e0f0ff;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      background-color: #3b82f6;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Header styling */
+.site-header {
+  background: linear-gradient(to right, #cfe9ff, #eaf4ff); /* nhạt xanh dương */
+  padding: 20px 40px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-bottom: 2px solid #b3d4fc;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+.site-title {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #1e3a8a;
+  text-shadow: 1px 1px 2px #b3d4fc;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+    header img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    main {
+      max-width: 700px;
+      background: white;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    button {
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 1em;
+      border-radius: 6px;
+      margin-right: 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2563eb;
+    }
+
+    #word-list {
+      margin-top: 30px;
+    }
+
+    h3, h4 {
+      color: #1d4ed8;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+<header class="site-header">
+  <div class="header-content">
+    <img src="dog-face.png" alt="Logo" class="logo">
+    <h1 class="site-title">Kiểm Tra Từ Vựng</h1>
+  </div>
+</header>
+
+
+  <main>
+    <div id="topic-selection">
+      <h2>Chủ đề</h2>
+      <div id="topics" class="topic-buttons">
+        <!-- Các nút sẽ được tạo bằng JavaScript -->
+      </div>
+
+
+      <h2>Nội dung</h2>
+      <label><input type="checkbox" name="type" value="V"> Động từ (V)</label>
+      <label><input type="checkbox" name="type" value="N"> Danh từ (N)</label>
+      <label><input type="checkbox" name="type" value="ADJ"> Tính từ (Adj)</label>
+      <label><input type="checkbox" name="type" value="PV"> Cụm động từ (PV)</label>
+
+      <div style="margin-top: 20px;">
+        <button onclick="showWords()">Xem từ liên quan</button>
+        <button onclick="startTest()">Bắt đầu kiểm tra</button>
+      </div>
+    </div>
+
+    <div id="word-list"></div>
+  </main>
+
+  <script src="words.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
