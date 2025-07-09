@@ -43,13 +43,150 @@
       text-transform: uppercase;
       margin: 0;
     }
+    .logo-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.thinking-bubble {
+  position: absolute;
+  top: 40px;
+  left: 60px; /* dịch sang phải vừa đủ */
+  display: none;
+  align-items: center;
+  z-index: 2;
+  flex-direction: row;
+}
+
+
+.dots {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dotFade 1s ease-in-out infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotFade {
+  0%, 80%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.big-bubble {
+  background: white;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  color: #1e3a8a;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 200px;
+  text-align: center;
+
+  /* Đám mây dạng tròn hơn */
+  border: 2px solid #bfdcff;
+}
+
+.big-bubble::after,
+.big-bubble::before {
+  content: "";
+  position: absolute;
+  background: white;
+  border: 2px solid #bfdcff;
+  border-radius: 50%;
+}
+
+.big-bubble::before {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border: 2px solid #bfdcff;
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 0;
+}
+
+.big-bubble::after {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 2px solid #bfdcff;
+  border-radius: 50%;
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  z-index: 0;
+}
+
+.big-bubble {
+  animation: floatIn 0.4s ease-in-out;
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  60%  { transform: translateY(0); }
+  80%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.logo.clicked {
+  animation: bounce 0.6s ease;
+}
+
   </style>
 </head>
 <body>
   <!-- Header -->
   <header class="site-header">
     <div class="header-content">
+      <div class="logo-container" onclick="onLogoClick()">
       <img src="dog-face.png" alt="Logo" class="logo">
+      <div class="thinking-bubble" id="thinking-bubble">
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="big-bubble">
+          lo làm i bấm chi lắm :v
+        </div>
+      </div>
+    </div>
       <h1 class="site-title">Test Tiếng Anh</h1>
     </div>
   </header>
@@ -72,5 +209,24 @@
 
   <script src="words.js"></script>
   <script src="test1.js"></script>
+  <script>
+  function onLogoClick() {
+  const logo = document.querySelector('.logo');
+  const bubble = document.getElementById('thinking-bubble');
+
+  // Thêm hiệu ứng bounce
+  logo.classList.add('clicked');
+  setTimeout(() => logo.classList.remove('clicked'), 600); // khớp thời gian animation
+
+  // Hiện bubble
+  bubble.style.display = 'flex';
+
+  // Tự ẩn sau 3 giây
+  setTimeout(() => {
+    bubble.style.display = 'none';
+  }, 3000);
+}
+
+</script>
 </body>
 </html>
