@@ -104,13 +104,133 @@
     ul {
       padding-left: 20px;
     }
+    .logo-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.thinking-bubble {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  display: none;
+  align-items: center;
+  gap: 5px;
+  z-index: 1;
+}
+
+.dots {
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+
+.dots span {
+  width: 6px;
+  height: 6px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: dotFade 1s ease-in-out infinite;
+}
+
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotFade {
+  0%, 80%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.big-bubble {
+  background: white;
+  padding: 14px 20px;
+  border-radius: 25px;
+  font-size: 1em;
+  color: #1e3a8a;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  max-width: 200px;
+  text-align: center;
+
+  /* Đám mây dạng tròn hơn */
+  border: 2px solid #bfdcff;
+}
+
+.big-bubble::after,
+.big-bubble::before {
+  content: "";
+  position: absolute;
+  background: white;
+  border: 2px solid #bfdcff;
+  border-radius: 50%;
+}
+
+.big-bubble::before {
+  width: 16px;
+  height: 16px;
+  bottom: -10px;
+  left: 15%;
+  z-index: 0;
+}
+
+.big-bubble::after {
+  width: 10px;
+  height: 10px;
+  bottom: -18px;
+  left: 10%;
+  z-index: 0;
+}
+.big-bubble {
+  animation: floatIn 0.4s ease-in-out;
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
   </style>
 </head>
 <body>
   <!-- Header -->
 <header class="site-header">
   <div class="header-content">
-    <img src="dog-face.png" alt="Logo" class="logo">
+    <div class="logo-container" onclick="onLogoClick()">
+      <img src="dog-face.png" alt="Logo" class="logo">
+      <div class="thinking-bubble" id="thinking-bubble">
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="big-bubble">
+          ơi mq đây !!!
+        </div>
+      </div>
+    </div>
+
+
     <h1 class="site-title">Kiểm Tra Từ Vựng</h1>
   </div>
 </header>
@@ -143,5 +263,25 @@
 
   <script src="words.js"></script>
   <script src="main.js"></script>
+  <script>
+  function onLogoClick() {
+    const logo = document.querySelector('.logo');
+    const bubble = document.getElementById('thinking-bubble');
+
+    // Bounce logo
+    logo.classList.add('clicked');
+    setTimeout(() => logo.classList.remove('clicked'), 500);
+
+    // Hiện bubble
+    bubble.style.display = 'flex';
+
+    // Tự ẩn sau 3 giây
+    setTimeout(() => {
+      bubble.style.display = 'none';
+    }, 3000);
+  }
+</script>
+
+
 </body>
 </html>
