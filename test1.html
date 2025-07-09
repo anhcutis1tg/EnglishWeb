@@ -1,0 +1,76 @@
+<!-- test1.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bài Kiểm Tra Tiếng Anh</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header {
+      background-color: #16a34a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .site-header {
+      background: linear-gradient(to right, #dcfce7, #f0fdf4);
+      padding: 20px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-bottom: 2px solid #86efac;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      height: 60px;
+      width: 60px;
+      object-fit: contain;
+    }
+
+    .site-title {
+      font-size: 2.2em;
+      font-weight: bold;
+      color: #166534;
+      text-shadow: 1px 1px 2px #bbf7d0;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-content">
+      <img src="dog-face.png" alt="Logo" class="logo">
+      <h1 class="site-title">Test Tiếng Anh</h1>
+    </div>
+  </header>
+
+  <main id="test-area">
+    <div class="card">
+      <h2 id="viet-meaning">Nghĩa tiếng Việt</h2>
+      <input type="text" id="eng-input" placeholder="Nhập từ tiếng Anh" />
+      <div class="actions">
+        <button onclick="submitAnswer()">Trả lời</button>
+        <button onclick="showSynonym()">Từ đồng nghĩa</button>
+        <button onclick="restartTest()">Làm lại</button>
+        <button onclick="goBack()">Trang chủ</button>
+      </div>
+      <div id="feedback"></div>
+      <div id="progress" style="margin-top: 10px; font-weight: bold;"></div>
+    <div id="summary" style="display: none; margin-top: 20px;"></div>
+    </div>
+  </main>
+
+  <script src="words.js"></script>
+  <script src="test1.js"></script>
+</body>
+</html>

@@ -86,3 +86,12 @@ function startTest() {
     localStorage.setItem("testWords", JSON.stringify(selectedWords));
     window.location.href = "test.html";
 }
+function startEnglishTest() {
+    if (selectedWords.length === 0) {
+        alert("Vui lòng chọn ít nhất một chủ đề và loại từ trước khi bắt đầu kiểm tra.");
+        return;
+    }
+
+    localStorage.setItem("testWords", JSON.stringify(selectedWords));
+    window.location.href = "test1.html";
+}

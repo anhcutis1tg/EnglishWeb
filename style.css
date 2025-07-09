@@ -113,3 +113,40 @@ input[type="text"] {
   font-weight: bold;
   margin-top: 10px;
 }
+.function-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.func-btn {
+  padding: 12px 20px;
+  font-size: 1em;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Màu riêng cho từng button */
+.func-btn.blue {
+  background-color: #38bdf8;
+  color: white;
+}
+.func-btn.green {
+  background-color: #22c55e;
+  color: white;
+}
+.func-btn.yellow {
+  background-color: #facc15;
+  color: black;
+}
+
+/* Hover effect */
+.func-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+}

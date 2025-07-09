@@ -128,12 +128,14 @@
       <label><input type="checkbox" name="type" value="V"> Động từ (V)</label>
       <label><input type="checkbox" name="type" value="N"> Danh từ (N)</label>
       <label><input type="checkbox" name="type" value="ADJ"> Tính từ (Adj)</label>
-      <label><input type="checkbox" name="type" value="PV"> Cụm động từ (PV)</label>
+      <label><input type="checkbox" name="type" value="PV"> Collocations & Phrasal Verbs</label>
 
-      <div style="margin-top: 20px;">
-        <button onclick="showWords()">Xem từ liên quan</button>
-        <button onclick="startTest()">Bắt đầu kiểm tra</button>
-      </div>
+      <div class="function-buttons">
+  <button class="func-btn blue" onclick="showWords()">Xem từ liên quan</button>
+  <button class="func-btn green" onclick="startTest()">Kiểm tra nghĩa</button>
+  <button class="func-btn yellow" onclick="startEnglishTest()">Kiểm tra từ</button>
+</div>
+
     </div>
 
     <div id="word-list"></div>

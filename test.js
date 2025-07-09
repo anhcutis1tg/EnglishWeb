@@ -38,27 +38,6 @@ function nextWord() {
     document.getElementById("feedback").className = "";
 }
 
-// function checkAnswer() {
-//     const input = document.getElementById("viet-input").value.trim().toLowerCase();
-//     const feedback = document.getElementById("feedback");
-//     const meanings = testWords[currentIndex].meaning;
-
-//     let isCorrect = false;
-
-//     if (Array.isArray(meanings)) {
-//         isCorrect = meanings.some(m => input === m.toLowerCase());
-//     } else {
-//         isCorrect = input === meanings.toLowerCase();
-//     }
-
-//     if (isCorrect) {
-//         feedback.textContent = "✅ Chính xác!";
-//         feedback.className = "correct";
-//     } else {
-//         feedback.textContent = `❌ Sai rồi!`;
-//         feedback.className = "incorrect";
-//     }
-// }
 function checkAnswer() {
     const input = document.getElementById("viet-input").value.trim().toLowerCase();
     const meanings = testWords[currentIndex].meaning.map(m => m.toLowerCase());
