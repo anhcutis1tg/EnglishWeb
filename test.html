@@ -168,7 +168,36 @@
 .logo.clicked {
   animation: bounce 0.6s ease;
 }
+.logo.big-pig {
+  width: 80px;
+  height: 80px;
+  transition: all 0.3s ease;
+}
+#fighting-frame {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  z-index: 999;
+  display: none;
+  text-align: center;
+}
 
+#fighting-frame img {
+  width: 180px;
+  height: auto;
+}
+
+#fighting-text {
+  font-size: 1.4em;
+  font-weight: bold;
+  color: #1e40af;
+  margin-bottom: 12px;
+}
   </style>
 </head>
 <body>
@@ -208,37 +237,80 @@
       <div id="feedback"></div>
     </div>
   </main>
+  <div id="fighting-frame" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 9999; background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 12px;">
+      <div id="fighting-text">Ráng học đê !!! Fighting 😊</div>
+      <img src="fighting.gif" alt="Fighting" />
 
+  </div>
   <script src="words.js"></script>
   <script src="test.js"></script>
   <script>
   const bubble = document.getElementById('thinking-bubble');
   const bubbleText = document.getElementById('bubble-text');
   const logo = document.querySelector('.logo');
+  const fightingFrame = document.getElementById('fighting-frame');
 
   const messages = [
     "ơiii mq đây !!!",
     "bấm được bấm hoài T-T",
-    "lo làm i ai cho bấm mà bấm :v"
+    "lo làm i ai cho bấm mà bấm :v",
+    "bấm nữa hóa lợn giờ :))"
   ];
+
   let clickCount = 0;
+  let isPig = false;
+  let bubbleTimeout = null;  // ✅ Thêm biến này để điều khiển timeout
 
   function onLogoClick() {
     // Bounce effect
     logo.classList.add('clicked');
     setTimeout(() => logo.classList.remove('clicked'), 600);
 
-    // Cập nhật câu nói
-    bubbleText.textContent = messages[clickCount % messages.length];
+    // Nếu đang là con heo → chỉ hiển thị gif
+    if (isPig) {
+      showFightingGif();
+      return;
+    }
+
     clickCount++;
 
-    // Hiện bong bóng
+    // Đến lượt thứ 5 → đổi hình con heo
+    if (clickCount === 5) {
+      logo.src = "conheo.png";
+      logo.classList.add('big-pig');
+      isPig = true;
+      return;
+    }
+
+    // Cập nhật lời thoại
+    bubbleText.textContent = messages[(clickCount - 1) % messages.length];
     bubble.style.display = 'flex';
 
-    // Tự ẩn sau 3 giây
-    setTimeout(() => {
+    // ✅ Nếu đã có timeout cũ → hủy đi
+    if (bubbleTimeout) {
+      clearTimeout(bubbleTimeout);
+    }
+
+    // ✅ Tạo timeout mới để ẩn sau 4 giây
+    bubbleTimeout = setTimeout(() => {
       bubble.style.display = 'none';
-    }, 3000);
+      bubbleTimeout = null;  // Reset
+    }, 4000);
+  }
+
+  function showFightingGif() {
+    fightingFrame.style.display = 'block';
+
+    setTimeout(() => {
+      fightingFrame.style.display = 'none';
+
+      // Reset trạng thái
+      logo.src = "dog-face.png";
+      logo.classList.remove('big-pig');
+      isPig = false;
+      clickCount = 0;
+    }, 5000);
   }
 </script>
 
