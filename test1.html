@@ -182,9 +182,10 @@
           <span></span>
           <span></span>
         </div>
-        <div class="big-bubble">
-          lo làm i bấm chi lắm :v
+        <div class="big-bubble" id="bubble-text">
+            ơi mq đây !!!
         </div>
+
       </div>
     </div>
       <h1 class="site-title">Test Tiếng Anh</h1>
@@ -210,23 +211,35 @@
   <script src="words.js"></script>
   <script src="test1.js"></script>
   <script>
-  function onLogoClick() {
-  const logo = document.querySelector('.logo');
   const bubble = document.getElementById('thinking-bubble');
+  const bubbleText = document.getElementById('bubble-text');
+  const logo = document.querySelector('.logo');
 
-  // Thêm hiệu ứng bounce
-  logo.classList.add('clicked');
-  setTimeout(() => logo.classList.remove('clicked'), 600); // khớp thời gian animation
+  const messages = [
+    "ơiii mq đây !!!",
+    "bấm được bấm hoài T-T",
+    "lo làm i ai cho bấm mà bấm :v"
+  ];
+  let clickCount = 0;
 
-  // Hiện bubble
-  bubble.style.display = 'flex';
+  function onLogoClick() {
+    // Bounce effect
+    logo.classList.add('clicked');
+    setTimeout(() => logo.classList.remove('clicked'), 600);
 
-  // Tự ẩn sau 3 giây
-  setTimeout(() => {
-    bubble.style.display = 'none';
-  }, 3000);
-}
+    // Cập nhật câu nói
+    bubbleText.textContent = messages[clickCount % messages.length];
+    clickCount++;
 
+    // Hiện bong bóng
+    bubble.style.display = 'flex';
+
+    // Tự ẩn sau 3 giây
+    setTimeout(() => {
+      bubble.style.display = 'none';
+    }, 3000);
+  }
 </script>
+
 </body>
 </html>
